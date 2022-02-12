@@ -1,0 +1,27 @@
+---
+# tasks file for httpd
+- name: Ensure httpd and firewalld are presented
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ services }}"
+
+- name: Ensure services is started
+  service:
+    name: "{{ item }}"
+    state: started
+  with_items: "{{ services }}"
+
+- name: Esure html file is presented
+  template:
+    src: eindex.html.j2
+    dest: /var/www/html/index.html
+  notify: 
+    - reload_httpd
+
+- name: Ensure firewall allowed connection
+  firewalld:
+    port: 80/tcp
+    state: enabled
+  notify:
+    - reload_firewalld

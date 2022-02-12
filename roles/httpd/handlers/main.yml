@@ -1,0 +1,11 @@
+---
+# handlers file for httpd
+- name: reload_firewalld
+  services:
+    name: firewalld
+    state: reloaded
+
+- name: reload_httpd
+  services:
+    name: httpd
+    state: reloaded
