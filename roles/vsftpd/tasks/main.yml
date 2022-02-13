@@ -21,6 +21,8 @@
   file:
     path: "{{ item.value.dir }}"
     state: directory
+    owner: ftp
+    group: ftp
     mode: "{{ item.value.mode }}"
   with_dict: "{{ dirs }}"
 
