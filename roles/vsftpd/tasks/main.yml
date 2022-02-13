@@ -14,13 +14,14 @@
 
 - name: Debug message
   debug:
-    var: dirs.value.pub
-
-
+    msg: "{{ item }}"
+  with_dict: "{{ dirs }}"
 
 # - name: Ensure needed dir presented
 #   file:
-
+#     path: "{{ item }}"
+#     state: directory
+#   with_dict: "{{ dirs }}"
 
 # - name: Esure vsftpd.conf file is presented
 #   template:
@@ -35,5 +36,5 @@
 
 # - name: Ensure firewall allowed connection
 #   firewalld:
-#     port: 80/tcp
+#     port: 20/tcp
 #     state: enabled
