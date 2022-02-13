@@ -5,7 +5,6 @@ services:
   - firewalld
 
 dirs:
-  pub:
-    dir: /var/ftp/pub 
-  upload:
-    dir: /var/ftp/pub/upload
+  pub: /var/ftp/pub 
+  upload: /var/ftp/pub/upload
+ 

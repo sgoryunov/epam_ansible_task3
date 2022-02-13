@@ -14,7 +14,7 @@
 
 - name: Debug message
   debug:
-    var: dirs.pub.dir.value
+    var: dirs.value.pub
 
 
 
