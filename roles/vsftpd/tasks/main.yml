@@ -19,11 +19,11 @@
 
 - name: Ensure needed dir presented
   file:
-    path: "{{ item.value.dir }}"
+    path: "{{ item.dir }}"
     state: directory
     owner: ftp
     group: ftp
-    mode: "{{ item.value.mode }}"
+    mode: "{{ item.mode }}"
   with_dict: "{{ dirs }}"
 
 - name: Esure vsftpd.conf file is presented
