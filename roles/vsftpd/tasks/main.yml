@@ -14,27 +14,30 @@
 
 - name: Debug message
   debug:
-    msg: "{{ item }}"
+    msg: "{{ item.value.dir }}"
   with_dict: "{{ dirs }}"
 
-# - name: Ensure needed dir presented
-#   file:
-#     path: "{{ item }}"
-#     state: directory
-#   with_dict: "{{ dirs }}"
+- name: Ensure needed dir presented
+  file:
+    path: "{{ item.value.dir }}"
+    state: directory
+    mode: "{{ item.value.mode }}"
+  with_dict: "{{ dirs }}"
 
-# - name: Esure vsftpd.conf file is presented
-#   template:
-#     src: vsftpd.conf.j2
-#     dest: /etc/vsftpd/vsftpd.conf
-#   notify: 
-#     - reload_vsftpd
+- name: Esure vsftpd.conf file is presented
+  template:
+    src: vsftpd.conf.j2
+    dest: /etc/vsftpd/vsftpd.conf
+  notify: 
+    - reload_vsftpd
 
-# - name: Ensure selinuxe is adjusted
-#   selinux:
+- name: Ensure selinuxe is adjusted
+  seboolean:
+    name: ftpd_anon_write
+    state: yes
+    persistent: yes
 
-
-# - name: Ensure firewall allowed connection
-#   firewalld:
-#     port: 20/tcp
-#     state: enabled
+- name: Ensure firewall allowed connection
+  firewalld:
+    port: 20-21/tcp
+    state: enabled

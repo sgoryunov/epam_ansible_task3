@@ -5,6 +5,15 @@ services:
   - firewalld
 
 dirs:
-  pub: /var/ftp/pub 
-  upload: /var/ftp/pub/upload
+  pub: 
+    - dir: /var/ftp/pub 
+    - mode: 0754
+  upload: 
+    - dir: /var/ftp/pub/upload
+    - mode: 0755
  
+vsftpd_anonymous_enable: YES
+vsftpd_anon_upload_enable: YES
+vsftpd_local_enable: YES
+vsftpd_listen: YES
+vsftpd_listen_ipv6: NO
