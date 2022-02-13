@@ -6,6 +6,15 @@
     state: present
   with_items: "{{ services }}"
 
+- name: "Ensure pakeges for selinux presented"
+  yum:
+    name: 
+      - python3-libsemanage
+      - policycoreutils-python-utils
+    state: present
+  when: ansible_distribution == "CentOS"
+  
+
 - name: Ensure services is started
   service:
     name: "{{ item }}"
