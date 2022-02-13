@@ -14,7 +14,6 @@
 
 - name: Esure html file is presented
   template:
-    attributes: diff_mod
     src: index.html.j2
     dest: /var/www/html/index.html
   notify: 
@@ -24,5 +23,3 @@
   firewalld:
     port: 80/tcp
     state: enabled
-  notify:
-    - reload_firewalld
