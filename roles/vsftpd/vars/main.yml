@@ -1,2 +1,11 @@
 ---
 # vars file for vsftpd
+services:
+  - vsftpd
+  - firewalld
+
+dirs:
+  pub:
+    dir: /var/ftp/pub 
+  upload:
+    dir: /var/ftp/pub/upload

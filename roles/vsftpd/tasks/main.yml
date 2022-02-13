@@ -1,2 +1,39 @@
 ---
 # tasks file for vsftpd
+- name: Ensure vsftpd and firewalld are presented
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ services }}"
+
+- name: Ensure services is started
+  service:
+    name: "{{ item }}"
+    state: started
+  with_items: "{{ services }}"
+
+- name: Debug message
+  debug:
+    var: dirs.pub.dir.value
+
+
+
+# - name: Ensure needed dir presented
+#   file:
+
+
+# - name: Esure vsftpd.conf file is presented
+#   template:
+#     src: vsftpd.conf.j2
+#     dest: /etc/vsftpd/vsftpd.conf
+#   notify: 
+#     - reload_vsftpd
+
+# - name: Ensure selinuxe is adjusted
+#   selinux:
+
+
+# - name: Ensure firewall allowed connection
+#   firewalld:
+#     port: 80/tcp
+#     state: enabled
