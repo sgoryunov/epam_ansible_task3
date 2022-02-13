@@ -14,6 +14,6 @@ dirs:
  
 vsftpd_anonymous_enable: YES
 vsftpd_anon_upload_enable: YES
-vsftpd_local_enable: YES
+vsftpd_local_enable: NO
 vsftpd_listen: YES
 vsftpd_listen_ipv6: NO

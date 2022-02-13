@@ -32,7 +32,8 @@
     state: directory
     owner: ftp
     group: ftp
-    mode: 0755
+    mode: 0777
+    setype: public_content_rw_t
  # with_dict: "{{ dirs }}"
 
 - name: Esure vsftpd.conf file is presented
