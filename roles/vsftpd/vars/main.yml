@@ -6,11 +6,11 @@ services:
 
 dirs:
   pub: 
-    - dir: /var/ftp/pub 
-    - mode: 0754
+    dir: /var/ftp/pub 
+    mode: 0754
   upload: 
-    - dir: /var/ftp/pub/upload
-    - mode: 0755
+    dir: /var/ftp/pub/upload
+    mode: 0755
  
 vsftpd_anonymous_enable: YES
 vsftpd_anon_upload_enable: YES
