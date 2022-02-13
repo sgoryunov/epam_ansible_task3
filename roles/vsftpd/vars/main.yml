@@ -7,11 +7,11 @@ services:
 dirs:
   pub: 
     dir: /var/ftp/pub 
-    mode: 0754
+    mode: 754
     setype: public_content_t
   upload: 
     dir: /var/ftp/pub/upload
-    mode: 0755
+    mode: 755
     setype: public_content_rw_t
  
 vsftpd_anonymous_enable: YES
