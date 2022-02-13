@@ -8,12 +8,14 @@ dirs:
   pub: 
     dir: /var/ftp/pub 
     mode: 0754
+    setype: public_content_t
   upload: 
     dir: /var/ftp/pub/upload
     mode: 0755
+    setype: public_content_rw_t
  
 vsftpd_anonymous_enable: YES
 vsftpd_anon_upload_enable: YES
-vsftpd_local_enable: NO
+vsftpd_local_enable: YES
 vsftpd_listen: YES
 vsftpd_listen_ipv6: NO

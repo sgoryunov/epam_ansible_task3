@@ -28,13 +28,13 @@
 
 - name: Ensure needed dir presented
   file:
-    path: /var/ftp/pub/upload
+    path: "{{ item.value.dir }}"
     state: directory
     owner: ftp
     group: ftp
-    mode: 0777
-    setype: public_content_rw_t
- # with_dict: "{{ dirs }}"
+    mode: "{{ item.value.mode }}"
+    setype: "{{ item.value.setype }}"
+  with_dict: "{{ dirs }}"
 
 - name: Esure vsftpd.conf file is presented
   template:
